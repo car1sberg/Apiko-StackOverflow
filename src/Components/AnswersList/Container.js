@@ -8,6 +8,7 @@ import Component from './Component';
 
 const mapStateToProps = state => ({
   user: state.user,
+  sortBy: state.sort
   // TODO: CODE FOR YOUR HOMEWORK HERE
 });
 
@@ -30,9 +31,14 @@ const enhance = compose(
         votes = votes.filter(vote => answerIds.includes(vote.answerId));
 
         const users = await db.users.find();
+        
 
         this.setState({ answers, votes, users, isFetching: false });
+        // console.log(this.props.sortBy)
       });
+    },
+    componentWillUpdate(nextProps) {
+      return this.props.sortBy !== nextProps;
     },
     componentWillUnmount() {
       clearInterval(this.interval);

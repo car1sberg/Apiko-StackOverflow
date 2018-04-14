@@ -134,7 +134,7 @@ const AnswersList = ({ answers, votes, users, onVote, user }) => (
                 {answer.createdAt.toLocaleDateString()}
               </AnswerBottom>
             </AnswerBottomWrapper>
-          </AnswerWrapper>
+          </AnswerWrapper>  
         </Answer>
       )}
     )}

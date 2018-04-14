@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { branch, compose, lifecycle, renderComponent, withStateHandlers } from 'recompose';
 import { Redirect, withRouter } from 'react-router';
 import { db } from '../../utils';
+import { answerSortActions } from '../../modules/answerSort';
 import AppLoader from '../Loaders/AppLoader';
 import Component from './Component';
 
 const mapDispatchToProps = (dispatch) => ({
-  setAnswerSorting: () => {
-    // TODO: CODE FOR YOUR HOMEWORK HERE
+  // TODO: CODE FOR YOUR HOMEWORK HERE
+  setAnswerSorting: (e) => {
+    dispatch(answerSortActions.setAnswerSort(e.target.value));
   }
 });
 
@@ -32,7 +34,7 @@ const enhance = compose(
         if (question) {
           author = await db.users.findOne(question.createdById);
         }
-
+        
         this.setState({ question, author, isFetching: false });
       },
     }),
