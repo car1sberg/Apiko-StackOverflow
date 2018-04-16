@@ -7,9 +7,7 @@ const defaultState = {
 export default (state = defaultState.activeOption, action) => {
   switch (action.type) {
     case answerSortTypes.SET_ANSWER_SORT:
-      const newState = Object.assign({}, state, {activeOption: action.value})
-      return newState.activeOption;
-
+      return action.value; 
     default:
       return state;
   }
