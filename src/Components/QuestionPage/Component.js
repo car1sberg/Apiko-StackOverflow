@@ -29,7 +29,6 @@ const SortByDropdown = styled.select`
   margin-bottom: 30px;
 `;
 
-
 const QuestionPage = ({ question, author, setAnswerSorting, sortBy }) => (
   <Wrapper>
     <Title>{question.title}</Title>
